@@ -1,4 +1,4 @@
-let storeURL = 'bryan-veeper-test-store.myshopify.com'
+
 // let finalName = ''
 // let storeName = storeURL.split('.')[0].split('-').filter((e) => {
 //     e = e[0].toUpperCase() + e.substring(1) + ' '
