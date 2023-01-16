@@ -41,7 +41,7 @@ var mongoose_1 = require("mongoose");
 var connectDB = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, mongoose_1["default"].connect("mongodb+srv://plebfmserviceaccount:wpdxjeYdXlhgCD2M@cluster0.gopndy8.mongodb.net/PlebFm?retryWrites=true&w=majority", {
+            case 0: return [4 /*yield*/, mongoose_1["default"].connect("", {
                     useUnifiedTopology: true,
                     useNewUrlParser: true,
                     serverApi: mongodb_1.ServerApiVersion.v1
