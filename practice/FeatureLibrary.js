@@ -58,18 +58,18 @@ class FeatureLib {
     }
 
     set(name, value) {
-        this.lib[name] = value;
+        this.lib.set(name, value);
     }
 
     createSortedAttrsObj(x){
-     return this.objToString(this.listToObject(this.sort(x)));
+     return this.listToObject(this.sort(x));
     }
 
     get(name) {
         try {
-            if (!this.lib[name])
+            if (!this.lib.has(name))
                 throw new Error('This feature does not exist!');
-            return this.lib[name];
+            return this.lib.get(name);
         } catch (error) {
             this.error(`FeatureLib: ${error.stack}`);
         }
@@ -78,11 +78,14 @@ class FeatureLib {
     setWithAttrs(name, attrs, value) {
         try {
             attrs = JSON.parse(attrs)
-            if (typeof attrs !== typeof {}.constructor())
+            if (attrs.constructor !== Object)
                 throw new Error('Attrs must be an object');
-            const sortedAttrsObj = this.createSortedAttrsObj(attrs);
-            this.set(name, {});
-            this.lib[name][sortedAttrsObj] = value;
+            const sorted = Object.fromEntries(Object.entries(attrs).sort())
+            this.set(name, sorted)
+            this.set(this.get(name), value);
+            // const sub = this
+            // this
+            return this.get(name);
         } catch (error) {
             this.error(`FeatureLib: ${error.stack}`);
         }
@@ -90,59 +93,60 @@ class FeatureLib {
 
     getWithAttrs(name, attrs) {
         try {
-            if (!this.lib[name])
+            if (!this.lib.get(name))
                 throw new Error('This feature does not exist!');
             if (typeof attrs !== typeof {}.constructor())
                 throw new Error('Attrs must be an object');
             
             const sortedAttrsObj = this.createSortedAttrsObj(attrs);
-            return this.lib[name][sortedAttrsObj];
+            return this.lib.get(name)[sortedAttrsObj];
         } catch (error) {
             this.error(`FeatureLib: ${error.stack}`);
         }
     }
 }
 
-const lib = new FeatureLib({});
+const map = new Map()
+const lib = new FeatureLib(map);
 
-const args = process.argv
-const flag = args[2]
-const feature = args[3]
-let attrs, value, featureValue;
+lib.setWithAttrs("window-position", '{"country": "US", "state": "WA"}', "upper-left")
+lib.printLib()
 
-switch(flag) {
-    case '-s' || '--set':
-        value = args[4];
-        lib.set(feature, value);
-        lib.printLib()
-        break;
+// const args = process.argv
+// const flag = args[2]
+// const feature = args[3]
+// let attrs, value, featureValue;
 
-    case '-sa' || '--set-attrs':
-        attrs = args[4],
-        value = args[5];
-        lib.setWithAttrs(feature, attrs, value)
-        lib.printLib()
-        break;
+// switch(flag) {
+//     case '-s' || '--set':
+//         value = args[4];
+//         lib.set(feature, value);
+//         lib.printLib()
+//         break;
 
-    case '-g' || '--get':
-        featureValue = lib.get(feature);
-        lib.print(featureValue)
-        break;
+//     case '-sa' || '--set-attrs':
+//         attrs = args[4],
+//         value = args[5];
+//         lib.setWithAttrs(feature, attrs, value)
+//         lib.printLib()
+//         break;
 
-    case '-ga' || '--get-attrs':
-        attrs = args[4]
-        featureValue = lib.getWithAttrs(feature, attrs);
-        lib.print(featureValue)
-        break;
+//     case '-g' || '--get':
+//         featureValue = lib.get(feature);
+//         lib.print(featureValue)
+//         break;
 
-    case '-p' || '--print':
-        lib.printLib();
-        break;
+//     case '-ga' || '--get-attrs':
+//         attrs = args[4]
+//         featureValue = lib.getWithAttrs(feature, attrs);
+//         lib.print(featureValue)
+//         break;
 
-    
+//     case '-p' || '--print':
+//         lib.printLib();
+//         break;
 
-
-    default:
-        lib.error(`FeatureLib Error\n>>>> Unknown flag: ${flag}`)
-        break;
-}
+//     default:
+//         lib.error(`FeatureLib Error\n>>>> Unknown flag: ${flag}`)
+//         break;
+// }

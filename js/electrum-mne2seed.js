@@ -1,4 +1,4 @@
 const electrum = require('electrum-mnemonic');
 
-const seed = electrum.mnemonicToSeedSync('supreme sauce cheese joke bamboo bread broccoli magic film under deliver', electrum.PREFIXES.segwit)
+const seed = electrum.mnemonicToSeedSync('supreme sauce web buffalo gravity bamboo peanut broccoli magic cube ripple coyote', electrum.PREFIXES.segwit)
 console.log(seed)
