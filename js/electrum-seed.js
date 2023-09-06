@@ -3,18 +3,18 @@ const fs = require('fs');
 const segwit = em.PREFIXES.segwit;
 
 const words = {
-    0: ['supreme'],
-    1: ['sauce'],
-    2: ['web'],
-    3: ['buffalo'],
-    4: ['gravity'],
-    5: ['bamboo'],
-    6: ['peanut'],
-    7: ['broccoli'],
-    8: ['magic'],
-    9: ['cube'],
-    10: ['ripple'],
-    11: ['coyote'],
+    0: [],
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+    9: [],
+    10: [],
+    11: [],
 };
 
 const wrong = fs.readFileSync('./wrong.txt', 'utf8').split('\n');

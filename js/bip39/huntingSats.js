@@ -5,23 +5,6 @@ const invalid = fs.readFileSync(`${filepath}/invalid.txt`, 'utf8').split('\n');
 const valid = fs.readFileSync(`${filepath}/valid.txt`, 'utf8').split('\n');
 
 const bip39 = require('bip39'), wordlist = bip39.wordlists.english
-const words = {
-  0: ["hold", "arrow", "keep", "one",
-    "two", "three", "wait", "hold",
-    "profit", "safe", "seed", "you",
-    "place", "question", "myself"],
-  1: ["elder"],
-  2: ["blast"],
-  3: ["monkey"],
-  4: ["horse"],
-  5: ["state"],
-  6: ["argue"],
-  7: [""],
-  8: ["water"],
-  9: ["present"],
-  10: ["just", "timber", "lake"],
-  11: ["select"],
-}
 const wordsArray = Object.values(words)
 const updatedWordlist = wordlist.filter(w => !wordsArray.flatMap(w => w).includes(w))
 const passphrase = "";

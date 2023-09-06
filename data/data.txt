@@ -1,1 +1,0 @@
-{"city":"Seattle","name":"Cafe Juanita","estimated_cost":160,"user_rating":{"average_rating":4.9,"votes":16203},"id":41}

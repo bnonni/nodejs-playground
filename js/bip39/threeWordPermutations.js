@@ -2,20 +2,7 @@
 const fs = require('fs');
 const bip39 = require('bip39');
 const wordlist = bip39.wordlists.english
-const words = {
-  0: "horse", // mempool
-  1: "select", // wasabi wallet
-  2: "elder", // blockstream
-  3: "", // swan
-  4: "", // btctkvr
-  5: "present", // hodl hodl
-  6: "", // trezor
-  7: "hollow", // coinkite
-  8: "blast", // cryptosteel
-  9: "state", // btcpay
-  10: "monkey", // bull bitcoin
-  11: "argue", // bitcoinreserve
-}
+
 const updatedWordlist = wordlist.filter(w => !Object.values(words).includes(w))
 const wordlistSlices = {
   0: updatedWordlist.slice(0, 500), // 0 - 499
