@@ -57,5 +57,4 @@ for(let i = 0; i < socks.length; i++) {
         }
     }
 }
-
 console.log(pairs)

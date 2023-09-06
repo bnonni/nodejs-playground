@@ -2,21 +2,6 @@ const em = require('electrum-mnemonic');
 const fs = require('fs');
 const segwit = em.PREFIXES.segwit;
 
-/**
-    0. Incredible: supreme
-    1. Marinara: sauce
-    2. Spider: spider
-    3. Mozzarella: pizza
-    4. Your momma is so fat: pizza
-    5. Japanese Torture: bamboo
-    6. Allergy: bread
-    7. Children hate this vegetable: broccoli
-    8. Merlin: magic
-    9. Vincenzo Natali: direct
-    10. Shitcoin in water: wet
-    11. Roadrunner: bird
- */
-
 const words = {
     0: ['supreme'],
     1: ['sauce'],

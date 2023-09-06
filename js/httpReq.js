@@ -1,42 +1,42 @@
 const https = require('https');
-
 const fs = require('fs');
+/*
+  https.get(, (resp) => {
+    let data = '';
 
-// https.get(, (resp) => {
-//   let data = '';
+    // A chunk of data has been received.
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
 
-//   // A chunk of data has been received.
-//   resp.on('data', (chunk) => {
-//     data += chunk;
-//   });
+    // The whole response has been received. Print out the result.
+    resp.on('end', () => {
+      console.log(JSON.parse(data));
+    });
 
-//   // The whole response has been received. Print out the result.
-//   resp.on('end', () => {
-//     console.log(JSON.parse(data));
-//   });
+  }).on("error", (err) => {
+    console.log("Error: " + err.message);
+  });
 
-// }).on("error", (err) => {
-//   console.log("Error: " + err.message);
-// });
+  var options = {
+      host: 'jsonplaceholder.typicode.com',
+      port: 80,
+      path: '/users',
+      method: 'GET',
+  };
+  let data;
+  var req = http.request(options, function (res) {
+    const chunks = []
 
-// var options = {
-//     host: 'jsonplaceholder.typicode.com',
-//     port: 80,
-//     path: '/users',
-//     method: 'GET',
-// };
-// let data;
-// var req = http.request(options, function (res) {
-//   const chunks = []
+    res.on("data", (chunk) => {
+        chunks.push(chunk)
+    });
 
-//   res.on("data", (chunk) => {
-//       chunks.push(chunk)
-//   });
-
-//   res.on("end", () => {
-//       const body = Buffer.concat(chunks);
-//   });
-// });
+    res.on("end", () => {
+        const body = Buffer.concat(chunks);
+    });
+  }) 
+*/
 
 const httpGet = url => {
     return new Promise((resolve, reject) => {
