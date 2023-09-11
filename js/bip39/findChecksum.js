@@ -5,7 +5,7 @@ const validFile = './seeds/valid.txt';
 const valid = fs.readFileSync(validFile, 'utf8').split('\n');
 
 const wordlist = bip39.wordlists.english
-const words = ["abandon", "ability", "able", "about", "above", "absent", "absorb", "abstract", "absurd", "abuse", "access", ""]
+const words = ["", "", "", "", "", "", "", "", "", "", "", ""]
 const updatedWordlist = wordlist.filter(w => !words.includes(w))
 
 console.log('generating seeds ...');
@@ -24,6 +24,6 @@ for (const mnemonic of mnemonics) {
     if (!isValid) continue;
     if (isIncludedValid) continue;
 
-    console.log(`Valid seed: ${seed}`);
-    fs.appendFileSync(validFile, `${seed}\n`);
+    console.log(`Valid mnemonic: ${mnemonic}`);
+    fs.appendFileSync(validFile, `${mnemonic}\n`);
 }

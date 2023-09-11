@@ -1,3 +1,8 @@
 node_modules/
 package-lock.json
 ignore*
+valid.txt
+missing.txt
+wrong.txt
+.DS_Store
+js/.DS_Store
